@@ -20,11 +20,14 @@ app.get('/api/rates', (req,res,next)=>{
         res.send(output);
         })
         .catch(error=>{
-            res.status(404)
-            res.send(error)
+            res.json({
+                status: 404,
+                message: 'A problem Occured!'
+            })
         })
         
-})  
+})
+
 app.use((req, res, next)=>{
     res.status(404);
     res.send({
