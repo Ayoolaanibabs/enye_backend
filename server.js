@@ -31,7 +31,7 @@ app.get('/api/rates', (req,res,next)=>{
 app.use((req, res, next)=>{
     res.status(404);
     res.send({
-        error: 'Not Found'
+        error: 'A problem Occured!'
     })
 })
 
