@@ -9,7 +9,7 @@ app.get('/api/rates', (req,res,next)=>{
         .then(response=>{
             if(response.ok){
             response.json().then(data=>{
-                var output = { 
+                const output = { 
                     results:{
                     base: data.base,
                     date: data.date,
@@ -29,6 +29,12 @@ app.get('/api/rates', (req,res,next)=>{
             })
         })
         
+});
+app.use((req, res, next)=>{
+    res.status(404);
+    res.send({
+        error: 'End Point Not Found'
+    })
 });
 
 PORT = process.env.PORT || 3000
